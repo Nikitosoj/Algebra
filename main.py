@@ -1,5 +1,5 @@
 global k
-n = 2
+
 def quadr(x):
     if x == 0:
         return(1)
@@ -62,20 +62,21 @@ def min(x,y):
         return(y)
 def tilda(x):
     return((k-1)-x)
-k = int(input())
+k = int(input("Введите K"))
 x1 = []
 y1 = []
+result = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 for i in range(k):
     for l in range(k):
-        x1.append(i)
+        result[0].append(i)
 
 for i in range(k):
     for l in range(k):
-        y1.append(l)
+        result[1].append(l)
 # print("x | y | max(x,y) | min(x,y) |   x*y   | tilda(x) | post(x)| I3(x)| J3(x)| x + y| x * y| minum(*_)| imp(x,y)| VV(x,y)| x -y ")
 
 
-result = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+
 
 final = []
 # for i in range(k*k):
@@ -108,14 +109,23 @@ def math(n,x,y):
     elif n == 11: return(I(x,y))
     elif n == 12: return(max(x,y))
     elif n == 13: return(min(x,y))
-l = 3
+s = 0
+l = 2
 def math2(n,x):
     if n == 1: return(quadr(x))
     elif n == 2: return(post(x))
     elif n == 3: return(tilda(x))
-for i in range(k*k):
-    if n >= 1 and n <= 3:
-        result[l].append(math2(n,x1[i]))
-    if n >=4 and n<=13:
-        result[l].append(math(n,x1[i],y1[i]))
-print(result[l])
+while(True):
+    n = int(input("Введите номер действия: "))
+    if n == 0:
+        print(result[l-1])
+        break
+    m = int(input("Введите 1 переменную: "))
+    t = int(input("Введите 2 переменную 0 если её нет: "))
+    for i in range(k*k):
+        if n >= 1 and n <= 3:
+            result[l].append(math2(n,result[l][i]))
+        if n >= 4 and n<=13:
+            result[l].append(math(n,result[m][i],result[t][i]))
+    print(result[l])
+    l = l + 1
