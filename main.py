@@ -62,7 +62,7 @@ def min(x,y):
         return(y)
 def tilda(x):
     return((k-1)-x)
-k = int(input("Введите K"))
+k = int(input("Введите K: "))
 x1 = []
 y1 = []
 result = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
@@ -118,14 +118,19 @@ def math2(n,x):
 while(True):
     n = int(input("Введите номер действия: "))
     if n == 0:
-        print(result[l-1])
+        # for i in result:
+        #     print(f'//////')
+        #     for a in i:
+        #         print(a)
         break
-    m = int(input("Введите 1 переменную: "))
-    t = int(input("Введите 2 переменную 0 если её нет: "))
+    m = int(input("Введите 1(x = 0) переменную: "))
+    t = int(input("Введите 2( y = 1) переменную 0 если её нет: "))
     for i in range(k*k):
         if n >= 1 and n <= 3:
             result[l].append(math2(n,result[l][i]))
         if n >= 4 and n<=13:
             result[l].append(math(n,result[m][i],result[t][i]))
-    print(result[l])
+    for i in result[l]:
+        print(i)
+    print(l, "номер результата")
     l = l + 1
