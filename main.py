@@ -132,5 +132,5 @@ while(True):
             result[l].append(math(n,result[m][i],result[t][i]))
     for i in result[l]:
         print(i)
-    print(l, "номер результата")
+    print( "номер результата: ", l)
     l = l + 1
